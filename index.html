@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Спортивный центр</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>Спортивный центр</h1>
+    <nav>
+      <a href="#" data-target="home">Главная</a>
+      <a href="#" data-target="schedule">Расписание</a>
+      <a href="#" data-target="profile">Профиль</a>
+      <a href="#" data-target="register">Регистрация</a>
+      <a href="#" data-target="login">Вход для тренеров</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- Главная страница -->
+  <section id="home" class="window">
+    <h2>Добро пожаловать в Спортивный центр!</h2>
+    <p>Выберите раздел, чтобы узнать больше о наших занятиях, тренерах и возможностях.</p>
+  </section>
+
+  <!-- Расписание занятий -->
+  <section id="schedule" class="window hidden">
+    <h2>Расписание занятий</h2>
+    <p>Здесь отображается расписание занятий на ближайшую неделю.</p>
+    <div id="schedule-table">
+      <div class="schedule-row">
+        <span>Фитнес</span>
+        <span>Понедельник</span>
+        <span>18:00</span>
+      </div>
+      <div class="schedule-row">
+        <span>Йога</span>
+        <span>Вторник</span>
+        <span>19:00</span>
+      </div>
+      <div class="schedule-row">
+        <span>Бассейн</span>
+        <span>Среда</span>
+        <span>20:00</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Вход для тренеров -->
+  <section id="login" class="window hidden">
+    <h2>Вход для тренеров</h2>
+    <div id="trainer-schedule" class="hidden">
+      <h3>Текущие занятия:</h3>
+      <div id="current-schedule">
+        <!-- Здесь будут отображаться занятия тренера -->
+      </div>
+    </div>
+
+    <div id="edit-schedule" class="hidden">
+      <h3>Редактировать расписание:</h3>
+      <form id="edit-schedule-form">
+        <label for="edit-id">ID занятия:</label>
+        <input type="text" id="edit-id" name="edit-id" readonly>
+
+        <label for="edit-description">Описание:</label>
+        <input type="text" id="edit-description" name="edit-description" required>
+
+        <label for="edit-photoLink">Ссылка на фото:</label>
+        <input type="text" id="edit-photoLink" name="edit-photoLink">
+
+        <button type="submit">Сохранить изменения</button>
+      </form>
+    </div>
+    <form id="login-form">
+      <label for="username">Логин:</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Пароль:</label>
+      <input type="password" id="password" name="password" required>
+
+      <button type="submit">Войти</button>
+    </form>
+
+    <!-- Панель тренера, скрыта до входа -->
+    <div id="trainer-panel" class="hidden">
+      <h3>Добавить занятие:</h3>
+      <form id="add-schedule-form">
+        <label for="activity">Занятие:</label>
+        <input type="text" id="activity" name="activity" required>
+
+        <label for="day">День:</label>
+        <input type="text" id="day" name="day" required>
+
+        <label for="time">Время:</label>
+        <input type="text" id="time" name="time" required>
+
+        <button type="submit">Добавить</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Профиль пользователя -->
+  <section id="profile" class="window hidden">
+    <h2>Ваш профиль</h2>
+    <p>Здесь вы можете посмотреть свои занятия и доступные абонементы.</p>
+    <ul>
+      <li>Абонемент: 6 занятий. Осталось: 4.</li>
+      <li>Записанные занятия:
+        <ul>
+          <li>Фитнес: Понедельник, 18:00</li>
+          <li>Йога: Вторник, 19:00</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Регистрация -->
+  <section id="register" class="window hidden">
+    <h2>Регистрация</h2>
+    <form>
+      <label for="name">ФИО:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="address">Адрес:</label>
+      <input type="text" id="address" name="address" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <button type="submit">Зарегистрироваться</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2024 Спортивный центр. Все права защищены.</p>
+</footer>
+
+<script src="js/scripts.js"></script>
+</body>
+</html>
