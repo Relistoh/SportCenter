@@ -1,146 +1,154 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Спортивный центр</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Спортивный комплекс</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* Скрытие элементов с классом hidden */
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
-<body>
 
+<body>
 <header>
   <div class="container">
-    <h1>Спортивный центр</h1>
+    <h1>Спортивный комплекс</h1>
     <nav>
-      <a href="#" data-target="home">Главная</a>
-      <a href="#" data-target="schedule">Расписание</a>
-      <a href="#" data-target="profile">Профиль</a>
+      <a href="#" data-target="main">Главная</a>
       <a href="#" data-target="register">Регистрация</a>
-      <a href="#" data-target="login">Вход для тренеров</a>
+      <a href="#" data-target="admin">Для сотрудников</a>
+      <a href="#" data-target="schedule">Расписание</a>
     </nav>
   </div>
 </header>
 
-<main>
-  <!-- Главная страница -->
-  <section id="home" class="window">
-    <h2>Добро пожаловать в Спортивный центр!</h2>
-    <p>Выберите раздел, чтобы узнать больше о наших занятиях, тренерах и возможностях.</p>
-  </section>
+<section id="main" class="window">
+  <h2>Добро пожаловать в систему спортивного комплекса</h2>
+  <p>
+    Выберите раздел, чтобы узнать больше о наших занятиях, тренерах и возможностях
+  </p>
+</section>
 
-  <!-- Расписание занятий -->
-  <section id="schedule" class="window hidden">
-    <h2>Расписание занятий</h2>
-    <p>Здесь отображается расписание занятий на ближайшую неделю.</p>
-    <div id="schedule-table">
-      <div class="schedule-row">
-        <span>Фитнес</span>
-        <span>Понедельник</span>
-        <span>18:00</span>
-      </div>
-      <div class="schedule-row">
-        <span>Йога</span>
-        <span>Вторник</span>
-        <span>19:00</span>
-      </div>
-      <div class="schedule-row">
-        <span>Бассейн</span>
-        <span>Среда</span>
-        <span>20:00</span>
-      </div>
-    </div>
-  </section>
+<section id="register" class="window hidden">
+  <h2>Регистрация клиента</h2>
+  <form>
+    <label for="surname">Фамилия:</label>
+    <input type="text" id="surname" name="surname" required />
 
-  <!-- Вход для тренеров -->
-  <section id="login" class="window hidden">
-    <h2>Вход для тренеров</h2>
-    <div id="trainer-schedule" class="hidden">
-      <h3>Текущие занятия:</h3>
-      <div id="current-schedule">
-        <!-- Здесь будут отображаться занятия тренера -->
-      </div>
-    </div>
+    <label for="name">Имя:</label>
+    <input type="text" id="name" name="name" required />
 
-    <div id="edit-schedule" class="hidden">
-      <h3>Редактировать расписание:</h3>
-      <form id="edit-schedule-form">
-        <label for="edit-id">ID занятия:</label>
-        <input type="text" id="edit-id" name="edit-id" readonly>
+    <label for="patronymic">Отчество (если имеется):</label>
+    <input type="text" id="patronymic" name="patronymic" />
 
-        <label for="edit-description">Описание:</label>
-        <input type="text" id="edit-description" name="edit-description" required>
+    <label for="phone">Телефон:</label>
+    <input type="tel" id="phone" name="phone" required />
 
-        <label for="edit-photoLink">Ссылка на фото:</label>
-        <input type="text" id="edit-photoLink" name="edit-photoLink">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required />
 
-        <button type="submit">Сохранить изменения</button>
-      </form>
-    </div>
-    <form id="login-form">
-      <label for="username">Логин:</label>
-      <input type="text" id="username" name="username" required>
+    <button type="submit">Зарегистрироваться</button>
+  </form>
+</section>
 
-      <label for="password">Пароль:</label>
-      <input type="password" id="password" name="password" required>
+<section id="admin" class="window hidden">
+  <h2>Для сотрудников</h2>
+  <form id="admin-login-form">
+    <label for="admin-login">Логин:</label>
+    <input
+      type="text"
+      id="admin-login"
+      name="admin-login"
+      required
+    />
 
-      <button type="submit">Войти</button>
-    </form>
+    <label for="admin-password">Пароль:</label>
+    <input
+      type="password"
+      id="admin-password"
+      name="admin-password"
+      required
+    />
 
-    <!-- Панель тренера, скрыта до входа -->
-    <div id="trainer-panel" class="hidden">
-      <h3>Добавить занятие:</h3>
-      <form id="add-schedule-form">
-        <label for="activity">Занятие:</label>
-        <input type="text" id="activity" name="activity" required>
+    <button type="submit">Войти</button>
+  </form>
+</section>
 
-        <label for="day">День:</label>
-        <input type="text" id="day" name="day" required>
+<section id="admin-panel" class="window hidden">
+  <h2>Админ-панель</h2>
 
-        <label for="time">Время:</label>
-        <input type="text" id="time" name="time" required>
+  <h3>Добавить новый объект</h3>
+  <form id="add-obj-form">
+    <label for="new-id">ID:</label>
+    <input type="text" id="new-id" name="new-id" required />
 
-        <button type="submit">Добавить</button>
-      </form>
-    </div>
-  </section>
+    <label for="new-name">Название:</label>
+    <input type="text" id="new-name" name="new-name" required />
 
-  <!-- Профиль пользователя -->
-  <section id="profile" class="window hidden">
-    <h2>Ваш профиль</h2>
-    <p>Здесь вы можете посмотреть свои занятия и доступные абонементы.</p>
-    <ul>
-      <li>Абонемент: 6 занятий. Осталось: 4.</li>
-      <li>Записанные занятия:
-        <ul>
-          <li>Фитнес: Понедельник, 18:00</li>
-          <li>Йога: Вторник, 19:00</li>
-        </ul>
-      </li>
-    </ul>
-  </section>
+    <label for="new-description">Описание:</label>
+    <input type="text" id="new-description" name="new-description" required />
 
-  <!-- Регистрация -->
-  <section id="register" class="window hidden">
-    <h2>Регистрация</h2>
-    <form>
-      <label for="name">ФИО:</label>
-      <input type="text" id="name" name="name" required>
+    <label for="new-author">Тренер:</label>
+    <input type="text" id="new-author" name="new-author" required />
 
-      <label for="address">Адрес:</label>
-      <input type="text" id="address" name="address" required>
+    <label for="new-photoLink">Ссылка на фото:</label>
+    <input type="text" id="new-photoLink" name="new-photoLink" />
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
+    <label for="new-lessonDate">Дата тренировки:</label>
+    <input type="date" id="new-lessonDate" name="new-lessonDate" required />
 
-      <button type="submit">Зарегистрироваться</button>
-    </form>
-  </section>
-</main>
+    <button type="submit">Добавить объект</button>
+  </form>
 
-<footer>
-  <p>&copy; 2024 Спортивный центр. Все права защищены.</p>
-</footer>
+  <div>
+    <button id="sort-asc">Сортировать по возрастанию даты</button>
+    <button id="sort-desc">Сортировать по убыванию даты</button>
+  </div>
+
+  <!-- Таблица объектов -->
+  <h3>Объекты</h3>
+  <table id="obj-table" class="hidden">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Название</th>
+      <th>Описание</th>
+      <th>Дата создания</th>
+      <th>Дата занятия</th>
+      <th>Тренер</th>
+      <th>Действия</th>
+    </tr>
+    </thead>
+    <tbody id="obj-table-body">
+    <!-- Здесь будут динамически добавляться строки с объектами -->
+    </tbody>
+  </table>
+  <div id="pagination-controls">
+    <button id="prev-page">Предыдущая страница</button>
+    <button id="next-page">Следующая страница</button>
+  </div>
+</section>
+
+<section id="schedule" class="window hidden">
+  <h2>Расписание</h2>
+  <p>Просмотрите наше расписание занятий:</p>
+  <table id="schedule-table">
+    <thead>
+    <tr>
+      <th>Дата</th>
+      <th>Занятие</th>
+      <th>Тренер</th>
+    </tr>
+    </thead>
+    <tbody id="schedule-body">
+    <!-- Здесь будут добавляться строки с расписанием -->
+    </tbody>
+  </table>
+</section>
 
 <script src="js/scripts.js"></script>
 </body>
-</html>
